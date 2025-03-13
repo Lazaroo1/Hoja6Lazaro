@@ -83,5 +83,32 @@ public class PokemonManager {
         }
     }
 
+    public void showColeccionByType() {
+        List<Pokemon> sortedList = new ArrayList<>(userCollection);
+        sortedList.sort(Comparator.comparing(Pokemon::getType1));
+        for (Pokemon pokemon : sortedList) {
+            System.out.println(pokemon.getName() + " - " + pokemon.getType1());
+        }
+    }
 
+    public void showAllByType() {
+        List<Pokemon> sortedList = new ArrayList<>(pokemonMap.values());
+        sortedList.sort(Comparator.comparing(Pokemon::getType1));
+        for (Pokemon pokemon : sortedList) {
+            System.out.println(pokemon.getName() + " - " + pokemon.getType1());
+        }
+    }
+
+    public void findByHability(String hability) {
+        for (Pokemon pokemon : pokemonMap.values()) {
+            if (pokemon.getHabilities().contains(hability)) {
+                System.out.println(pokemon.getName() + " tiene la habilidad " + hability);
+            }
+        }
+    }
+
+
+    public Set<Pokemon> getUserCollection() {
+        return userCollection;
+    }
 }
