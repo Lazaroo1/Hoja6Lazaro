@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.StringUtils;
+
 public class Pokemon {
     private String name;
     private String type1;
